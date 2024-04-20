@@ -7,6 +7,8 @@ import (
 	"net/http"
 	"os"
 	"time"
+	"io/ioutil"
+	"encoding/json"
 )
 
 func main() {
@@ -51,16 +53,46 @@ var templates = template.Must(template.ParseFiles("./templates/index.html"))
 // index is the handler responsible for rending the index page for the site.
 func index() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		response, err := http.Get("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY")
+		if err != nil {
+			fmt.Print(err.Error())
+			os.Exit(1)
+		}
+
+		responseData, err := ioutil.ReadAll(response.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		type NasaApi struct {
+			Copyright   	string
+			Date 	    	string
+			Explanation 	string
+			Hdurl			string
+			Media_type  	string
+			Service_version string
+			Title			string
+			Url				string	   
+		}
+
+		var api NasaApi 
+
+		err = json.Unmarshal(responseData, &api)
+		if err != nil {
+			log.Fatal(err)
+		}
 		b := struct {
 			Title        template.HTML
 			BusinessName string
 			Slogan       string
+			Nasa	     NasaApi
 		}{
 			Title:        template.HTML("Sismocabo"),
 			BusinessName: "Sismocabo",
 			Slogan:       "Sistema de Monitoramento do Câncer de Boca",
+			Nasa: 		  api,
 		}
-		err := templates.ExecuteTemplate(w, "index", &b)
+		err = templates.ExecuteTemplate(w, "index", &b)
 		if err != nil {
 			http.Error(w, fmt.Sprintf("index: couldn't parse template: %v", err), http.StatusInternalServerError)
 			return
@@ -72,3 +104,9 @@ func index() http.Handler {
 func public() http.Handler {
 	return http.StripPrefix("/public/", http.FileServer(http.Dir("./public")))
 }
+
+// func consumeApi() NasaApi {
+	
+
+// 	return api;
+// } 
