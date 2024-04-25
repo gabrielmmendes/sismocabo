@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    background-color: rgba(128, 202, 255, 0.46);
+}
+
+.logo {
+    position: relative;
+    top: 15px;
+    left: 15px;
+}
+
+.menu {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    left: 50%;
+}
+  
+li {
+  float: left;
+  position: relative;
+}
+  
+li a {
+    display: block;
+    color: rgba(13, 153, 255, 1);
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.pacientes {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
