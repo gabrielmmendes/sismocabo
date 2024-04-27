@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/public/style/style.css">
+  <title>Sismocabo</title>
+</head>
+<body>
+  <div class="cabecalho">
+    <a href="/"><img src="/public/assets/logo.png" style="width: 200px;" class="logo" alt="logomarca do sistema de monitoramento do câncer de boca"></a>
+    <div class="menu">
+      <ul>
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/pacientes" class="destaque">Pacientes</a></li>
+        <li><a href="/mapa-interativo">Mapa Interativo</a></li>
+      </ul>
+    </div>
+    <a href="/usuario"><img src="/public/assets/acesso-ao-perfil.png" class="perfil" alt="acesso ao perfil"></a>
+  </div>
+  <div class="tabela">
+    <table style="width: 100%;">
+      <tr class="linha1">
+        <th style="width: 15%;">Nome do Paciente</th>
+        <th style="width: 12%;">CPF</th>
+        <th style="width: 20%;">Data de Nascimento</th>
+        <th style="width: 13%;">Telefone celular</th>
+        <th>Sexo</th>
+        <th>Está fumante</th>
+        <th>Faz uso de álcool</th>
+        <th>Está em Situação de rua</th>
+        <th>Editar</th>
+      </tr>
+      {{range .Pacientes}}
+      <tr>
+        <td>{{.Nome}}</td>
+        <td>{{.Cpf}}</td>
+        <td>{{.DataNascimento}} ({{.Idade}})</td>
+        <td>{{.Telefone}}</td>
+        <td>{{.Sexo}}</td>
+        {{if .EstaFumante}}
+        <td>✅</td>
+        {{else}}
+        <td>❌</td>
+        {{end}}
+        {{if .FazUsoAlcool}}
+        <td>✅</td>
+        {{else}}
+        <td>❌</td>
+        {{end}}
+        {{if .EstaSituacaoDeRua}}
+        <td>✅</td>
+        {{else}}
+        <td>❌</td>
+        {{end}}
+        <td><a href="editar">✏️</a></td>
+      </tr>
+      {{end}}
+    </table>
+  </div>
+</body>
+</html>

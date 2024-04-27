@@ -1,47 +1,61 @@
 package main
 
 import (
-    "net/http"
-    "html/template"
+	"encoding/json"
+	"html/template"
+	"io"
+	"net/http"
+	"os"
 )
 
-func main() {
-    http.HandleFunc("/", handler)
+var templates = template.Must(template.ParseFiles("./templates/index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html"))
 
-    // Iniciar o servidor na porta 8080
-    http.ListenAndServe(":8080", nil)
+func main() {
+	http.HandleFunc("/", handler)
+	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
+	http.HandleFunc("/dashboard", dashboard)
+	http.HandleFunc("/mapa-interativo", mapa)
+	http.HandleFunc("/usuario", usuario)
+
+	// Iniciar o servidor na porta 8080
+	http.ListenAndServe(":8080", nil)
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    tmpl, _ := template.ParseFiles("index.html")
+	var Pacientes Pacientes
 
-    p := Pacientes{
-        Itens: []Paciente{
-            {
-                Nome:           "Diogo SIlva Lima",
-                Cpf:            "867.420.587-90",
-            },
-            {
-                Nome:           "Diogo SIlva Lima",
-                Cpf:            "867.420.587-90",
-            },
-        },
-    }
+	jsonFile, _ := os.Open("data.json")
+	byteJson, _ := io.ReadAll(jsonFile)
+	json.Unmarshal(byteJson, &Pacientes)
 
-    tmpl.Execute(w, p)
+	templates.Execute(w, Pacientes)
 }
 
-type Pacientes struct {
-    Itens []Paciente
+func dashboard(w http.ResponseWriter, r *http.Request) {
+	templates.ExecuteTemplate(w, "dashboard.html", "a")
+}
+
+func mapa(w http.ResponseWriter, r *http.Request) {
+	templates.ExecuteTemplate(w, "mapa.html", "a")
+}
+
+func usuario(w http.ResponseWriter, r *http.Request) {
+	templates.ExecuteTemplate(w, "usuario.html", "a")
 }
 
 type Paciente struct {
-    Nome           string
-    Cpf            string
-    DataNascimento string
-    Telefone       string
-    Sexo           string
-    EstaFumante    bool
-    FazUsoAlcool   bool 
-    SituacaoDeRua  bool
+	Nome              string `json:"nome"`
+	Cpf               string `json:"cpf"`
+	DataNascimento    string `json:"data_nasc"`
+	Idade             int 	 `json:"idade"`
+	Telefone          string `json:"celular"`
+	Sexo              string `json:"sexo"`
+	Cep               string `json:"cep"`
+	EstaFumante       bool   `json:"esta_fumante"`
+	FazUsoAlcool      bool   `json:"faz_uso_alcool"`
+	EstaSituacaoDeRua bool   `json:"esta_situacao_de_rua"`
+}
+
+type Pacientes struct {
+	Pacientes []Paciente `json:"pacientes"`
 }
