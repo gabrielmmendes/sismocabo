@@ -8,7 +8,7 @@ import (
 	"os"
 )
 
-var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html"))
+var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html"))
 
 func main() {
 	http.HandleFunc("/", handler)
