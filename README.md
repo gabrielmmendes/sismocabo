@@ -8,5 +8,5 @@ Esse reposítório tem o objetivo de armazenar um protótipo de alta fidelidade 
 1. Instale o Go
 2. Faça o clone deste repositório
 3. Abra o terminal no repositório
-4. Execute o comando ```go run main.go```
+4. Execute o comando ```go run .```
 5. Está no ar! http://localhost:8080
