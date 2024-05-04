@@ -7,7 +7,7 @@ Esse reposítório tem o objetivo de armazenar um protótipo de alta fidelidade 
 ## Como rodar
 1. Instale o Go
 2. Faça o clone deste repositório
-3. Abra um editor e modifique os dados do banco de dados na arquivo infra\db.go
+3. Abra um editor e modifique os dados do banco de dados na arquivo .env
 4. Abra o terminal no repositório
 5. Execute o comando ```go run .```
 6. Está no ar! http://localhost:8080
