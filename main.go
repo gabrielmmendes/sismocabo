@@ -10,8 +10,7 @@ import (
 	"os"
 )
 
-var templates = template.Must(template.ParseGlob("./templates/*"))
-var index = template.Must(template.ParseFiles("./index.html"));
+var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html"))
 
 func main() {
 	infra.CreateConnection()
@@ -23,29 +22,54 @@ func main() {
 	http.HandleFunc("/usuario", usuario)
 
 	// Iniciar o servidor na porta 8080
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		return
+	}
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
+
+	err := r.ParseForm()
+	if err != nil {
+		return
+	}
+	// busca := strings.TrimSpace(r.Form.Get("busca"))
+
 	var Pacientes Pacientes
 
 	jsonFile, _ := os.Open("data.json")
 	byteJson, _ := io.ReadAll(jsonFile)
-	json.Unmarshal(byteJson, &Pacientes)
+	err = json.Unmarshal(byteJson, &Pacientes)
+	if err != nil {
+		return
+	}
 
-	index.Execute(w, Pacientes)
+	err = templates.Execute(w, Pacientes)
+	if err != nil {
+		return
+	}
 }
 
 func dashboard(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "dashboard.html", "a")
+	err := templates.ExecuteTemplate(w, "dashboard.html", "a")
+	if err != nil {
+		return
+	}
 }
 
 func mapa(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "mapa.html", "a")
+	err := templates.ExecuteTemplate(w, "mapa.html", "a")
+	if err != nil {
+		return
+	}
 }
 
 func usuario(w http.ResponseWriter, r *http.Request) {
-	templates.ExecuteTemplate(w, "usuario.html", "a")
+	err := templates.ExecuteTemplate(w, "usuario.html", "a")
+	if err != nil {
+		return
+	}
 }
 
 type Pacientes struct {
