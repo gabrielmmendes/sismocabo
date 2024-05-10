@@ -19,14 +19,17 @@ body {
     display: block;
 }
 
-.busca {
+.opcoes {
     background-color: rgba(128, 202, 255, 1);
     height: 20px;
     padding-left: 12px;
     padding-top: 5px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     border-color: rgba(13, 153, 255, 1);
     position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .butaum {
@@ -34,8 +37,8 @@ body {
     border-color: rgba(128, 202, 255, 1);
     border-radius: 30px;
     position: relative;
-    top: 6px;
-    right: 40px;
+    top: 7px;
+    right: 4px;
 }
 
 .campo {
@@ -43,9 +46,90 @@ body {
     border-radius: 10px;
     background-color: rgb(194, 228, 253);
     width: 300px;
-    height: 30px;
+    height: 33px;
     display: inline-block;
     padding-left: 10px;
+}
+
+.botao-cadastrar {
+    display: flex;
+    margin-right: 15px;
+    margin-top: 6px;
+}
+
+.botao-cadastrar a:link, .botao-cadastrar a:visited {
+    font-weight: 600;
+    border: 2px solid white;
+    background-color: rgba(128, 202, 255, 1);
+    border-radius: 15px;
+    color: white;
+    padding: 8px 25px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: .3s;
+}
+
+.botao-cadastrar a:hover, .botao-cadastrar a:active {
+    font-weight: 600;
+    background-color: white;
+    color: rgba(128, 202, 255, 1);
+}
+
+.cadastrar {
+    color: rgba(13, 153, 255, 1);
+    margin: 50px 15px;
+    background-color: rgba(212, 237, 255, 1);
+    border: 2px solid rgba(128, 202, 255, 1);
+    border-radius: 20px;
+    display: block;
+    height: fit-content;
+}
+
+.cadastrar input[type='text'], .cadastrar input[type='date'], .cadastrar input[type='number'] {
+    width: 400px;
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid rgba(128, 202, 255, 1);
+    border-radius: 15px;
+}
+
+.cadastrar input[type='radio'], .cadastrar input[type='checkbox'] {
+    margin-top: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.cadastrar h1 {
+    margin: 10px;
+}
+
+.dados {
+    display: table-cell;
+}
+
+.sexo {
+    margin: 15px;
+    padding-left: 15px;
+    border: 1px solid rgba(128, 202, 255, 1);
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.condicao {
+    margin: 15px;
+    padding-left: 15px;
+    border: 1px solid rgba(128, 202, 255, 1);
+    background-color: white;
+    border-radius: 15px;
+    align-items: center;
+}
+
+#cadastrar-paciente {
+    margin: 15px;
+    display: table-cell;
 }
 
 ul {

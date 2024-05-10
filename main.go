@@ -8,10 +8,12 @@ import (
 	"ip-web/model"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
-var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html"))
+var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html", "./templates/cadastrar-paciente.html"))
+var db = infra.CreateDatabaseConnection()
 
 func main() {
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
@@ -20,6 +22,8 @@ func main() {
 	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/mapa-interativo", mapa)
 	http.HandleFunc("/usuario", usuario)
+	http.HandleFunc("/paciente/cadastra", cadastrarPaciente)
+	http.HandleFunc("/paciente/{id}/deleta", deletaPaciente)
 
 	// Iniciar o servidor na porta 8080
 	err := http.ListenAndServe(":8080", nil)
@@ -29,8 +33,6 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-
-	db := infra.CreateDatabaseConnection()
 
 	err := r.ParseForm()
 	if err != nil {
@@ -81,6 +83,47 @@ func usuario(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		return
 	}
+}
+
+func cadastrarPaciente(w http.ResponseWriter, r *http.Request) {
+
+	nome := r.FormValue("nome")
+	cpf := r.FormValue("cpf")
+	dataDeNascimento := r.FormValue("data_nasc")
+	idade, _ := strconv.Atoi(r.FormValue("idade"))
+	numero := r.FormValue("celular")
+	sexo := r.FormValue("sexo")
+	cep := r.FormValue("cep")
+	estaFumante := r.Form.Has("esta_fumante")
+	fazUsoDeAlcool := r.Form.Has("faz_uso_alcool")
+	estaEmSituacaoDeRua := r.Form.Has("esta_situacao_de_rua")
+
+	p := model.Paciente{
+		Nome:              nome,
+		Cpf:               cpf,
+		DataNascimento:    dataDeNascimento,
+		Idade:             idade,
+		Telefone:          numero,
+		Sexo:              sexo,
+		Cep:               cep,
+		EstaFumante:       estaFumante,
+		FazUsoAlcool:      fazUsoDeAlcool,
+		EstaSituacaoDeRua: estaEmSituacaoDeRua,
+	}
+
+	if sexo != "" {
+		db.Create(&p)
+	}
+
+	err := templates.ExecuteTemplate(w, "cadastrar-paciente.html", nil)
+	if err != nil {
+		return
+	}
+}
+
+func deletaPaciente(w http.ResponseWriter, r *http.Request) {
+
+	handler(w, r)
 }
 
 type Pacientes struct {
