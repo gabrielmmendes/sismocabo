@@ -23,7 +23,7 @@ func main() {
 	http.HandleFunc("/mapa-interativo", mapa)
 	http.HandleFunc("/usuario", usuario)
 	http.HandleFunc("/paciente/cadastra", cadastrarPaciente)
-	http.HandleFunc("/paciente/{id}/deleta", deletaPaciente)
+	http.HandleFunc("/paciente/deleta", deletaPaciente)
 
 	// Iniciar o servidor na porta 8080
 	err := http.ListenAndServe(":8080", nil)
@@ -64,21 +64,21 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func dashboard(w http.ResponseWriter, r *http.Request) {
+func dashboard(w http.ResponseWriter, _ *http.Request) {
 	err := templates.ExecuteTemplate(w, "dashboard.html", "a")
 	if err != nil {
 		return
 	}
 }
 
-func mapa(w http.ResponseWriter, r *http.Request) {
+func mapa(w http.ResponseWriter, _ *http.Request) {
 	err := templates.ExecuteTemplate(w, "mapa.html", "a")
 	if err != nil {
 		return
 	}
 }
 
-func usuario(w http.ResponseWriter, r *http.Request) {
+func usuario(w http.ResponseWriter, _ *http.Request) {
 	err := templates.ExecuteTemplate(w, "usuario.html", "a")
 	if err != nil {
 		return
@@ -122,8 +122,11 @@ func cadastrarPaciente(w http.ResponseWriter, r *http.Request) {
 }
 
 func deletaPaciente(w http.ResponseWriter, r *http.Request) {
+	id, _ := strconv.Atoi(r.FormValue("id"))
 
-	handler(w, r)
+	db.Delete(&model.Paciente{}, id)
+
+	http.Redirect(w, r, "/pacientes", http.StatusSeeOther)
 }
 
 type Pacientes struct {

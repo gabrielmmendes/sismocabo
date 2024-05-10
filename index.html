@@ -37,7 +37,7 @@
         <th>Está fumante</th>
         <th>Faz uso de álcool</th>
         <th>Está em Situação de rua</th>
-        <th>Editar</th>
+        <th>Excluir</th>
       </tr>
       {{range .Pacientes}}
       <tr>
@@ -61,7 +61,7 @@
         {{else}}
         <td>❌</td>
         {{end}}
-        <td><a href="/editar">✏️</a></td>
+        <td><a href="/paciente/deleta?id={{ .ID }}" role="button">🗑️</a></td>
       </tr>
       {{end}}
     </table>
