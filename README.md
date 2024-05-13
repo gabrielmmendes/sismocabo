@@ -1,6 +1,6 @@
 ![image](https://raw.githubusercontent.com/gabrielmmendes/sismocabo/main/public/assets/logo.png)
 # Sistema de Monitoramento do Câncer de Boca
-[![My Skills](https://skillicons.dev/icons?i=go,html,css)](https://skillicons.dev)
+[![My Skills](https://skillicons.dev/icons?i=go,html,css,postgres)](https://skillicons.dev)
 
 Esse reposítório tem o objetivo de armazenar um protótipo de alta fidelidade da nossa versão do projeto Sobre Vidas ACS. 
 
