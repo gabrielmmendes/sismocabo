@@ -1,0 +1,65 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* Adiciona uma cor de fundo para visualização */
+}
+
+.container {
+    width: 1920px;
+    height: 1080px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C0E2FA; /* Adiciona uma cor de fundo para visualização */
+    border: 1px solid #ccc;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+}
+
+.imagem {
+    width: 299.638px;
+    height: 260.114px;
+    flex-shrink: 0;
+    border: 2px solid #000;
+    border: none; /* Adiciona uma borda para visualização */
+    margin-bottom: 60px;
+}
+
+.imagem2 {
+    width: 100.00px;
+    height: 54.04px;
+    flex-shrink: 0;
+    border: 2px solid #000;
+    border: none; /* Adiciona uma borda para visualização */
+}
+
+.retangulo {
+    width: 518.807px;
+    height: 43.75px;
+    flex-shrink: 0;
+    border-radius: 10px; /* Arredonda as bordas do retângulo */
+    margin-top: 20px; /* Espaçamento de 20px entre o retângulo e a imagem2 */
+    display: flex; /* Adiciona display flex para alinhar o texto */
+    justify-content: center; /* Alinha horizontalmente o texto ao centro */
+    align-items: center; /* Alinha verticalmente o texto ao centro */
+}
+
+.retangulo1 {
+    width: 518.807px;
+    height: 43.75px;
+    flex-shrink: 0;
+    border-radius: 10px; /* Arredonda as bordas do retângulo */
+    margin-top: 20px; /* Espaçamento de 20px entre o retângulo e a imagem2 */
+    display: flex; /* Adiciona display flex para alinhar o texto */
+    justify-content: center; /* Alinha horizontalmente o texto ao centro */
+    align-items: center; /* Alinha verticalmente o texto ao centro */
+}
+
+
+.nova-imagem {
+    margin-top: 20px;
+}
