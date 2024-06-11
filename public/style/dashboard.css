@@ -1,0 +1,401 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #BDE3FF;
+    height: 950px;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    color: #666;
+}
+
+table, th, td, tr {
+    border: 3px solid black;
+    border-collapse: collapse;
+}
+
+/* Parte Superior */
+.cabecalho {
+    position: relative;
+    height: 200px;
+    border-bottom: solid black 2px ;
+}
+#logoPrincipal{
+    position: absolute;
+    width: 300px;
+    top: 50%;
+    right: 15%;
+    -ms-transform: translate(50%, -50%);
+    transform: translate(50%, -50%);
+}
+button#back{
+    position: absolute;
+    
+    width: 120px;
+    height: 60px;
+    margin-left: 150px;
+    margin-top: 100px;
+    
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    font-size: 15pt;
+    border-color: transparent;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+ 
+
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+
+    transition: background-color 0.2s;
+}
+button#back:hover{
+    background-color: #d1d1d1
+}
+
+/* Navegação */
+div#navigation{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    display: flex;
+}
+div#navigation a{
+    color: #0D99FF;
+    font-size: 20pt;
+    margin: 10px;
+    font-weight: 200;
+    text-decoration: none;
+    width: 184px;
+}
+div#navigation a#dashboard{
+    text-decoration: underline;
+    font-weight: 700;
+}
+
+/* Parte Inferior */
+#dashboard{
+    position: relative;
+    width:100%;
+    height:100%;
+}
+
+div.quadro{
+    position: fixed;
+    position: absolute;
+    background-color: #D5EDFD;
+    height: 280px;
+    transition: 0.5s;
+    border-radius: 5px;
+}
+div.quadro:hover{
+    box-shadow: 0px 0px 5px #333;
+}
+
+/* Ícones de cada quadro */
+div.icon{
+    position: absolute;
+    z-index: 2;
+    background-color: #FFFFFF;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 7px #666;
+}
+div.icon img{
+    margin-left: 12%;
+    margin-top: 5%;
+    width: 75%;
+}
+div.icon#iconPerson{
+    left: 25%;
+    margin-top: 30px;
+}
+div.icon#newsIcon{
+    right: 5%;
+    margin-top: 30px;
+}
+div.icon#newsIcon img{
+    margin-top: 10px; 
+    width: 72%;
+}
+div.icon#pinIcon{
+    left:25%;
+    margin-top:380px;
+}
+div.icon#pinIcon img{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2px; 
+}
+div.icon#warningIcon{
+    right: 5%;
+    margin-top: 380px;
+}
+
+/* Quadro Principal */
+div.quadro#perfil{
+    position: absolute;
+    left: 35%;
+    margin-top: 2%;
+    width: 30%;
+    height: 70%;
+    height: 650px;
+    overflow: hidden;
+}
+div.quadro h2#title{
+    margin-top:0px;
+    padding: 5px;
+    font-size: 15pt;
+    background-color: #80CAFF;    
+    border-radius: 5px;
+    z-index:1;
+    position: relative;
+}
+div.quadro h2#titlePrincipal{
+    margin-top:0px;
+    padding: 20px;
+    font-size: 25pt;
+    background-color: #1d93e8;    
+    border-radius: 5px;
+    text-align: center;
+}
+div.quadro h2#titlePrincipal p{
+    color: black;
+    font-size: 15pt;
+    margin: 8px;
+}
+div.quadro div{
+    margin-top: -2%;
+    margin-left:5%;
+    margin-bottom: 15%;
+    width:90%;
+    height:30%;
+    padding:-20px;
+    border-radius: 10px;
+    height: 200px;
+}
+div.quadro div#pacientes{
+    margin-top: -8%;
+    height: 200px;
+}
+div.quadro div h2#title{
+    margin-top:0px;
+    padding: 10px;
+    font-size: 15pt;
+    background-color: #80CAFF;    
+    border-radius: 5px;
+    
+}
+div.quadro div h2#title img#icon{
+    position: absolute;
+    width: 45px;
+    margin-top: -15px;
+    right: 0%;
+    padding: 2%;
+    background-color: #88C2EC;
+    border-radius: 5px;
+    border: solid #C1E6FF 2px;
+    z-index: 1;
+}
+div.quadro div ul{
+    position: relative;
+    margin-top: -23px;
+    margin-left: 0%;
+    width: 100%;
+    height: 90%;
+    padding: 0 0 0 0;
+}
+div.quadro div ul li{
+    list-style: none;
+    width:99%;
+    height: 12%;
+    margin-top: -3px;
+    border-radius: 5px;
+    margin: 0 0 0 0;
+    color: black;
+    padding-left: 5px;
+    padding-top: 2px;
+    font-size: 10pt;
+    font-weight: bold;
+    z-index: 0;
+}
+div.quadro div ul li.i{
+    background-color: #C1E6FF;
+}
+div.quadro div ul li.p{
+    background-color: #88C2EC;
+}
+div.quadro div ul li input.checkout{
+    position: absolute;
+    right: 2%;
+}
+div.quadro div#pacientes ul li p{
+    margin-top: 1px;
+    position: absolute;
+    font-size: 10pt;
+}
+div.quadro div#pacientes ul li p.person{
+    left: 2%;
+}
+div.quadro div#pacientes ul li p.cpf{
+    right: 2%;
+}
+
+/* Dados do ACS */
+div.quadro#dados{
+    position: absolute;
+    overflow: hidden;
+    left: 3%;
+    margin-top: 55px;
+    width: 28%;
+    /* height: 30%; */
+}
+div.quadro#dados ul li p{
+    margin-top: 6px;
+    position: absolute;
+    font-size: 10pt;
+
+}
+div.quadro#dados div ul li p.info1{
+    left: 2%;
+}
+div.quadro#dados div ul li p.info2{
+    right: 2%;
+}
+div.quadro#dados div ul li{
+    height: 17%;
+}
+
+/* Mapa */
+div.quadro#mapa{
+    position: absolute;
+    left: 3%;
+    margin-top: 400px;
+    width: 28%;
+    height: 280px;
+    overflow: hidden;
+
+}
+div.quadro#mapa{
+    align-items: center;
+    justify-content: center;
+}
+div.quadro#mapa #mapaInterativo{
+    position: absolute;
+    left:-2.5%;
+    margin-top:-25px;
+    width: 95%;
+    height: 86%;
+    background-image: url("./imgs/map.png");
+    box-shadow: 0px 0px 3px #333;
+}
+div.quadro#mapa #mapaInterativo #pointer{
+    position: relative;
+    width: 40px;
+    top: 50%;
+}
+div.quadro#mapa #mapaInterativo #pointerDetails{
+    background-color: gold;
+    border-radius: 5px;
+    font-size: 10pt;
+    padding: 10px;
+    width: 130px;
+    height: 45px;
+    position: relative;
+    top: -80px;
+    left: 35px;
+}
+div.quadro#mapa #mapaInterativo div{
+    margin-left: 30%;
+    margin-top: 10%;
+    width: 210px;
+    height: 100px;
+}
+
+/* Notícias */
+div.quadro#noticias{
+    position: absolute;
+    right: 3%;
+    margin-top: 55px;
+    width: 28%;
+    overflow: hidden;
+    /* height: 30%; */
+}
+div.quadro#noticias div h2#materia{
+    z-index: 1;
+    position: relative;
+    background-color: #88C2EC;
+    font-size: 11pt;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 25px;
+    font-weight:800;
+}
+div.quadro#noticias div h2#text{
+    font-size: 83%;
+    margin-top: -20px;
+    padding: 40px 0px 20px 15px;
+    width: 42%;
+    text-align: justify;
+}
+div.quadro#noticias div div{
+    background-color: #C1E6FF;
+    display: flex;
+    height: 80%;
+    margin-top: -20px;
+    margin-left: 2%;
+    width: 96%;
+}
+div.quadro#noticias div div img#ufg{
+    height: 45%;
+    right: 10%;
+    margin-top: 5%;
+    position: absolute;
+    border-radius: 5px;
+}
+
+/* Atualizações */
+div.quadro#atualizacoes{
+    position: absolute;
+    right: 3%;
+    margin-top: 400px;
+    width: 28%;
+    height: 280px;
+    overflow: hidden;
+}
+div.quadro#atualizacoes div h2#materia{
+    z-index: 1;
+    position: relative;
+    background-color: #88C2EC;
+    font-size: 11pt;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 25px;
+    font-weight:800;
+}
+div.quadro#atualizacoes div h2#text{
+    font-size: 83%;
+    margin-top: -20px;
+    padding: 40px 0px 20px 15px;
+    width: 50%;
+    text-align: justify;
+}
+div.quadro#atualizacoes div div{
+    background-color: #C1E6FF;
+    display: flex;
+    height: 70%;
+    margin-top: -20px;
+    margin-left: 2%;
+    width: 96%;
+}
+div.quadro#atualizacoes div div img#attIcon{
+    height: 50%;
+    right: 11%;
+    margin-top: 5%;
+    position: absolute;
+    border-radius: 5px;
+}
