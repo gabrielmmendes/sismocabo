@@ -1,17 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-{{template "head" .}}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interativo</title>
+    <link rel="icon" href="/imgs/logo.png">
+    <link rel="stylesheet" href="../style/mapa.css">
+</head>
 <body>
-  <div class="cabecalho">
-    <a href="/"><img src="./public/assets/logo.png" style="width: 200px;" class="logo" alt="logomarca do sistema de monitoramento do câncer de boca"></a>
-    <div class="menu">
-      <ul>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/pacientes">Pacientes</a></li>
-        <li><a href="/mapa-interativo" class="destaque">Mapa Interativo</a></li>
-      </ul>
+    <div class="cabecalho">
+        <img id="logoPrincipal" src="imgs/fullLogo.png">
+        <div id="navigation">
+            <a href="./dashboard.html" class="navOption" id="dashboard">Dashboard</a>
+            <a href="" class="navOption" id="pacientes">Pacientes</a>
+            <a href="" class="navOption" id="mapa">Mapa Interativo</a>            
+        </div>
+        <a href="" id="perfilButton"><img src="./imgs/Perfil.png"></a>
     </div>
-    <a href="/usuario"><img src="./public/assets/acesso-ao-perfil.png" class="perfil" alt="acesso ao perfil"></a>
-  </div>
+    <div id="mapaInterativo">
+        <div id="paciente1">
+            <img src="./imgs/pointer.png" id="pointer">
+            <h2 id="pointerDetails" class="medium">Bruno Souza Rocha<br><br>Fumante, 50+ anos</h2>
+        </div>
+        <div id="paciente2">
+            <img src="./imgs/pointer.png" id="pointer">
+            <h2 id="pointerDetails" class="light">Péricles Machado Filho<br><br>50+ anos</h2>
+        </div>
+        <div id="paciente3">
+            <img src="./imgs/pointer.png" id="pointer">
+            <h2 id="pointerDetails" class="hard">Ricardo de Andrade Castro<br><br>Fumante, Alcóolatra, 50+ anos</h2>
+        </div>
+    </div>
+    <div id="legenda">
+        <div>
+            <div id="legVerde"></div><h2>Pacientes de baixo risco</h2>
+        </div>
+        <div>
+            <div id="legAmarela"></div><h2>Pacientes de médio risco</h2>
+        </div>
+        <div>
+            <div id="legVermelha"></div><h2>Pacientes de alto risco</h2>
+        </div>
+    </div>
+    
 </body>
 </html>

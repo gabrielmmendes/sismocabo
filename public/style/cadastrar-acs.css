@@ -1,0 +1,46 @@
+#signup {
+    flex-direction: column;
+}
+
+#campos {
+    position: absolute;
+    top: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px;
+    min-width: 80vh;
+}
+#campos input {
+    min-width: 100%;
+    border-radius: 10px;
+    border: transparent;
+    font-size: 1.6rem;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+input::placeholder {
+    font-size: 1.5rem;
+}
+
+#cadastrar {
+    padding: 50px;
+    position: absolute;
+    bottom: 20vh;
+}
+#cadastrar input {
+    background-color: rgb(57, 57, 252);
+    color: #fff;
+    width: 50vw;
+    border: transparent;
+    border-radius: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+#cadastrar input[type="submit"]:hover {
+    background-color: greenyellow;
+    color: #000;
+    border: solid 2px #000;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sismocabo</title>
+    <link rel="stylesheet" href="../public/style/cadastrar-acs.css">
+</head>
+<body id="signup">
+    <div id="voltar">
+        <button type="button" onclick="alert('Retornará para a página anterior.')">🠔 Voltar</button>
+    </div>
+
+    <div id="campos">
+        <input type="text" name="nome" id="nome" placeholder="Nome">
+        <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome">
+        <input type="email" name="email" id="email" placeholder="E-mail">
+        <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+        <input type="password" name="confirmacao-senha" id="confirmacao-senha" placeholder="Digite sua senha novamente">
+    </div>
+
+    <div id="cadastrar">
+        <input type="submit" value="Cadastre-se" onclick="alert('Usuário será cadastrado e irá retornar à tela de login.')">
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(194, 228, 253);
+}
+
+#container {
+    color: #000;
+    background-color: rgba(212, 237, 255, 1);
+    height: 80vh;
+    width: 80vw;
+    position: relative;
+    overflow: hidden;
+}
+
+#nome-foto {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#nome-foto h2 {
+    margin: 0;
+    font-size: 1.7rem;
+}
+#nome-foto img {
+    max-width: 10vw;
+    height: auto;
+}
+
+#blocos {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    gap: 50px;
+    padding: 0px;
+    align-items: center;
+    justify-content: center;
+}
+#bloco1 input, #bloco2 input {
+    border: transparent;
+    border-radius: 10px;
+    font-size: 2rem;
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    text-align: center;
+}
+#blocos h3 {
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
+
+#voltar, #salvar {
+    position: absolute;
+    margin: 20px;
+}
+#voltar {
+    top: 10px;
+    left: 10px;
+}
+#salvar {
+    bottom: 10px;
+    right: 10px;
+}
+#voltar button, #salvar input {
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
