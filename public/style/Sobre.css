@@ -3,12 +3,11 @@
   }
   body {
     height: 100%;
-    background-color: rgb(14, 14, 14);
+    background: rgba(192,226,250,1);
   }
   .logo {
     top: 10px;
     left: 10px;
-    background-color: hsl(0, 0%, 90%);
     transition: background-color 300ms;
 }
 button{
@@ -55,6 +54,7 @@ button{
     top: 87px;
     left: 61px;
     overflow: hidden;
+    
   }
   .v500_146 {
     width: 334px;
@@ -360,3 +360,4 @@ button{
     opacity: 1;
     text-align: left;
   }
+
