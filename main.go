@@ -12,18 +12,20 @@ import (
 	"strings"
 )
 
-var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html", "./templates/cadastrar-paciente.html"))
+var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html", "./templates/cadastrar-paciente.html", "./templates/pre-login.html", "./templates/teladelogin.html"))
 var db = infra.CreateDatabaseConnection()
 
 func main() {
 	http.Handle("/public/", http.StripPrefix("/public/", http.FileServer(http.Dir("public"))))
-	http.HandleFunc("/", handler)
-	http.HandleFunc("/pacientes", handler)
+	http.HandleFunc("/", index)
+	http.HandleFunc("/pacientes", pacientes)
 	http.HandleFunc("/dashboard", dashboard)
 	http.HandleFunc("/mapa-interativo", mapa)
 	http.HandleFunc("/usuario", usuario)
 	http.HandleFunc("/paciente/cadastra", cadastrarPaciente)
 	http.HandleFunc("/paciente/deleta", deletaPaciente)
+	http.HandleFunc("/login", login)
+
 
 	// Iniciar o servidor na porta 8080
 	err := http.ListenAndServe(":8080", nil)
@@ -32,7 +34,21 @@ func main() {
 	}
 }
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func login(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "teladelogin.html", "a")
+	if err != nil {
+		return
+	}
+}
+
+func index(w http.ResponseWriter, r *http.Request) {
+	err := templates.ExecuteTemplate(w, "pre-login.html", "a")
+	if err != nil {
+		return
+	}
+}
+
+func pacientes(w http.ResponseWriter, r *http.Request) {
 
 	err := r.ParseForm()
 	if err != nil {

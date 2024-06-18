@@ -6,17 +6,14 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff; /* Adiciona uma cor de fundo para visualização */
+    background-color: #C0E2FA; /* Adiciona uma cor de fundo para visualização */
 }
 
 .container {
-    width: 1920px;
-    height: 1080px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #C0E2FA; /* Adiciona uma cor de fundo para visualização */
-    border: 1px solid #ccc;
     flex-direction: column; /* Empilha os elementos verticalmente */
 }
 
@@ -26,7 +23,8 @@ body, html {
     flex-shrink: 0;
     border: 2px solid #000;
     border: none; /* Adiciona uma borda para visualização */
-    margin-bottom: 60px;
+    margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .imagem2 {
@@ -42,7 +40,6 @@ body, html {
     height: 43.75px;
     flex-shrink: 0;
     border-radius: 10px; /* Arredonda as bordas do retângulo */
-    margin-top: 20px; /* Espaçamento de 20px entre o retângulo e a imagem2 */
     display: flex; /* Adiciona display flex para alinhar o texto */
     justify-content: center; /* Alinha horizontalmente o texto ao centro */
     align-items: center; /* Alinha verticalmente o texto ao centro */
@@ -53,7 +50,6 @@ body, html {
     height: 43.75px;
     flex-shrink: 0;
     border-radius: 10px; /* Arredonda as bordas do retângulo */
-    margin-top: 20px; /* Espaçamento de 20px entre o retângulo e a imagem2 */
     display: flex; /* Adiciona display flex para alinhar o texto */
     justify-content: center; /* Alinha horizontalmente o texto ao centro */
     align-items: center; /* Alinha verticalmente o texto ao centro */
