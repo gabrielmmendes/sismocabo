@@ -1,4 +1,4 @@
- {
+*{
     box-sizing: border-box;
   }
   body {
@@ -6,9 +6,17 @@
     background-color: rgba(192,226,250,1);
   }
   .logo {
+    position: absolute;
     top: 10px;
     left: 10px;
-    transition: background-color 300ms;
+}
+.fotoDente {
+  position: relative;
+  height: 350px;
+  left: 950px;
+  margin: 200px auto;
+  border-radius: 100px;
+  
 }
   .fundoMenor {
     width: 100%;
