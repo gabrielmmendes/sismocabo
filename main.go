@@ -1,13 +1,10 @@
 package main
 
 import (
-	"encoding/json"
 	"html/template"
-	"io"
 	"ip-web/infra"
 	"ip-web/model"
 	"net/http"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -55,14 +52,9 @@ func pacientes(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	busca := strings.TrimSpace(r.Form.Get("busca"))
+
 	var Pacientes []model.Paciente
-
 	db.Find(&Pacientes)
-
-	if len(Pacientes) == 0 {
-		Pacientes = jsonToList()
-		db.Create(&Pacientes)
-	}
 
 	data := struct {
 		Busca     string
@@ -143,22 +135,4 @@ func deletaPaciente(w http.ResponseWriter, r *http.Request) {
 	db.Delete(&model.Paciente{}, id)
 
 	http.Redirect(w, r, "/pacientes", http.StatusSeeOther)
-}
-
-type Pacientes struct {
-	Pacientes []model.Paciente `json:"pacientes"`
-}
-
-func jsonToList() []model.Paciente {
-	var Pacientes Pacientes
-
-	jsonFile, _ := os.Open("data.json")
-	byteJson, _ := io.ReadAll(jsonFile)
-
-	err := json.Unmarshal(byteJson, &Pacientes)
-	if err != nil {
-		return nil
-	}
-
-	return Pacientes.Pacientes
 }
