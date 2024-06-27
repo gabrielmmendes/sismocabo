@@ -163,6 +163,8 @@ li a {
     top: 15px;
     right: 15px;
     float: right;
+    width: 50px;
+    height: 56px;
 }
 
 .tabela {
