@@ -73,14 +73,17 @@ func pacientes(w http.ResponseWriter, r *http.Request) {
 }
 
 func dashboard(w http.ResponseWriter, _ *http.Request) {
-	err := templates.ExecuteTemplate(w, "dashboard.html", "a")
+	var acs model.Acs
+	db.First(&acs)
+	
+	err := templates.ExecuteTemplate(w, "mapa.html", acs)
 	if err != nil {
 		return
 	}
 }
 
 func mapa(w http.ResponseWriter, _ *http.Request) {
-	err := templates.ExecuteTemplate(w, "mapa.html", "a")
+	err := templates.ExecuteTemplate(w, "mapa.html","a")
 	if err != nil {
 		return
 	}
