@@ -54,7 +54,7 @@ div#mapaInterativo{
     margin-top:5%;
     width: 90%;
     height: 60%;
-    background-image: url("/imgs/map.png");
+    background-image: url("../assets/map.png");
     box-shadow: 0px 0px 3px #333;
     overflow: hidden;
 }
