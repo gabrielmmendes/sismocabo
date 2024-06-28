@@ -76,7 +76,7 @@ func dashboard(w http.ResponseWriter, _ *http.Request) {
 	var acs model.Acs
 	db.First(&acs)
 	
-	err := templates.ExecuteTemplate(w, "mapa.html", acs)
+	err := templates.ExecuteTemplate(w, "dashboard.html", acs)
 	if err != nil {
 		return
 	}
