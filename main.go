@@ -87,7 +87,10 @@ func mapa(w http.ResponseWriter, _ *http.Request) {
 }
 
 func usuario(w http.ResponseWriter, _ *http.Request) {
-	err := templates.ExecuteTemplate(w, "usuario.html", "a")
+	var acs model.Acs
+	db.First(&acs)
+	
+	err := templates.ExecuteTemplate(w, "usuario.html", acs)
 	if err != nil {
 		return
 	}
