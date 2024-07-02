@@ -80,12 +80,23 @@ func dashboard(w http.ResponseWriter, _ *http.Request) {
 	ptDates := [][]string{{"Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"}, {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"}}
 	date := ptDates[0][int(dataAtual.Weekday())-1] + ", " + strconv.Itoa(dataAtual.Day()) + " de " + ptDates[1][int(dataAtual.Month())-1] + " de " + strconv.Itoa(dataAtual.Year())
 
+	getFirstWord := func(name string) string {
+		for i := range name {
+			if string(name[i]) == " " {
+				return name[0:i]
+			}
+		}
+		return name
+	}
+
 	dashboardInfo := struct {
-		AcsData model.Acs
-		Date    string
+		AcsData      model.Acs
+		Date         string
+		AcsFirstName string
 	}{
-		AcsData: acs,
-		Date:    date,
+		AcsData:      acs,
+		Date:         date,
+		AcsFirstName: getFirstWord(acs.Nome),
 	}
 
 	err := templates.ExecuteTemplate(w, "dashboard.html", dashboardInfo)
