@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html", "./templates/cadastrar-paciente.html", "./templates/pre-login.html", "./templates/teladelogin.html"))
@@ -22,7 +23,6 @@ func main() {
 	http.HandleFunc("/paciente/cadastra", cadastrarPaciente)
 	http.HandleFunc("/paciente/deleta", deletaPaciente)
 	http.HandleFunc("/login", login)
-
 
 	// Iniciar o servidor na porta 8080
 	err := http.ListenAndServe(":8080", nil)
@@ -75,15 +75,27 @@ func pacientes(w http.ResponseWriter, r *http.Request) {
 func dashboard(w http.ResponseWriter, _ *http.Request) {
 	var acs model.Acs
 	db.First(&acs)
-	
-	err := templates.ExecuteTemplate(w, "dashboard.html", acs)
+
+	dataAtual := time.Now()
+	ptDates := [][]string{{"Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"}, {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"}}
+	date := ptDates[0][int(dataAtual.Weekday())-1] + ", " + strconv.Itoa(dataAtual.Day()) + " de " + ptDates[1][int(dataAtual.Month())-1] + " de " + strconv.Itoa(dataAtual.Year())
+
+	dashboardInfo := struct {
+		AcsData model.Acs
+		Date    string
+	}{
+		AcsData: acs,
+		Date:    date,
+	}
+
+	err := templates.ExecuteTemplate(w, "dashboard.html", dashboardInfo)
 	if err != nil {
 		return
 	}
 }
 
 func mapa(w http.ResponseWriter, _ *http.Request) {
-	err := templates.ExecuteTemplate(w, "mapa.html","a")
+	err := templates.ExecuteTemplate(w, "mapa.html", "a")
 	if err != nil {
 		return
 	}
@@ -92,7 +104,7 @@ func mapa(w http.ResponseWriter, _ *http.Request) {
 func usuario(w http.ResponseWriter, _ *http.Request) {
 	var acs model.Acs
 	db.First(&acs)
-	
+
 	err := templates.ExecuteTemplate(w, "usuario.html", acs)
 	if err != nil {
 		return

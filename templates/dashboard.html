@@ -25,27 +25,27 @@
                 <li class="i"></li>
                 <li class="p">
                     <p class="info1">Nome Completo</p>
-                    <p class="info2">{{.Nome}}</p>
+                    <p class="info2">{{.AcsData.Nome}}</p>
                 </li>
                 <li class="i">
                     <p class="info1">CNS Profissional</p>
-                    <p class="info2">{{.Cns}}</p>
+                    <p class="info2">{{.AcsData.Cns}}</p>
                 </li>
                 <li class="p">
                     <p class="info1">CPF</p>
-                    <p class="info2">{{.Cpf}}</p>
+                    <p class="info2">{{.AcsData.Cpf}}</p>
                 </li>
                 <li class="i">
                     <p class="info1">CBO</p>
-                    <p class="info2">{{.Cbo}}</p>
+                    <p class="info2">{{.AcsData.Cbo}}</p>
                 </li>
                 <li class="p">
                     <p class="info1">CNES</p>
-                    <p class="info2">{{.Cnes}}</p>
+                    <p class="info2">{{.AcsData.Cnes}}</p>
                 </li>
                 <li class="i">
                     <p class="info1">INE</p>
-                    <p class="info2">{{.Ine}}</p>
+                    <p class="info2">{{.AcsData.Ine}}</p>
                 </li>
             </ul>
         </div>
@@ -85,8 +85,8 @@
     </div>
     <div class="quadro" id="perfil">
         <h2 id="titlePrincipal">
-            <p>6 de maio de 2024</p>
-            Bom dia, {{.Nome}}
+            <p>{{.Date}}</p>
+            Bom dia, {{.AcsData.Nome}}
         </h2>
             <div id="agenda">
                 <h2 id="title">Sua Agenda <img id="icon" src="../public/assets/iconCalendar.png"></h2>
