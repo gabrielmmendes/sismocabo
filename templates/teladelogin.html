@@ -10,11 +10,18 @@
     <div class="container">
         <img src="../public/assets/Logo (2).png" alt="Descrição da Imagem" class="imagem">
         <img src="../public/assets/Titulo Login.png" alt="Descrição da Imagem" class="imagem2">
-        <label for="cpfEmail" class="retangulo">Cpf/Email</label>
-        <input type="text" id="cpfEmail" name="cpfEmail" style="border-radius: 10px; width: 300px; height: 20px; border: none;">
-        <label for="senha" class="retangulo1">Senha</label>
-        <input type="text" id="senha" name="senha" style="border-radius: 10px; width: 300px; height: 20px;border: none;">
-        <a href="/dashboard"><img src="../public/assets/Group 633056.png" alt="" style="justify-content: center; padding: 30px; padding-bottom: 0px; max-width: 12vw;height: auto;" ></a>
+        <form action="/login" method="post">
+            <label class="retangulo">Cpf
+                <input type="text"  name="cpf" style="border-radius: 10px; width: 300px; height: 20px; border: none;">
+            </label>
+            <label  class="retangulo1">Senha
+                <input type="password"  name="senha" style="border-radius: 10px; width: 300px; height: 20px;border: none;">
+            </label>
+            
+            <button type="submit" ><img src="../public/assets/Group 633056.png" alt="" style="justify-content: center; padding: 30px; padding-bottom: 0px; max-width: 12vw;height: auto;" ></button>
+        </form>
+
     </div>
+
 </body>
 </html>

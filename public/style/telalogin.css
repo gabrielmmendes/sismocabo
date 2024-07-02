@@ -59,3 +59,8 @@ body, html {
 .nova-imagem {
     margin-top: 20px;
 }
+
+button{
+    background-color: #C0E2FA;
+    padding: none;
+}

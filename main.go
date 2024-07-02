@@ -32,6 +32,15 @@ func main() {
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
+	senha := r.FormValue("senha")
+	cpf := r.FormValue("cpf")
+	var Acs model.Acs
+
+	db.Find(&Acs)
+
+	if Acs.Cpf == cpf && Acs.Senha == senha {
+		http.Redirect(w, r, "/pacientes", http.StatusCreated)
+	}
 	err := templates.ExecuteTemplate(w, "teladelogin.html", "a")
 	if err != nil {
 		return
