@@ -86,8 +86,8 @@ func dashboard(w http.ResponseWriter, _ *http.Request) {
 	db.First(&acs)
 
 	dataAtual := time.Now()
-	ptDates := [][]string{{"Seg", "Ter", "Qua", "Qui", "Sex", "Sab", "Dom"}, {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"}}
-	date := ptDates[0][int(dataAtual.Weekday())-1] + ", " + strconv.Itoa(dataAtual.Day()) + " de " + ptDates[1][int(dataAtual.Month())-1] + " de " + strconv.Itoa(dataAtual.Year())
+	ptDates := [][]string{{"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"}, {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"}}
+	date := ptDates[0][int(dataAtual.Weekday())] + ", " + strconv.Itoa(dataAtual.Day()) + " de " + ptDates[1][int(dataAtual.Month())-1] + " de " + strconv.Itoa(dataAtual.Year())
 
 	getFirstWord := func(name string) string {
 		for i := range name {
