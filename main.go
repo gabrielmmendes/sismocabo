@@ -39,7 +39,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	db.Find(&Acs)
 
 	if Acs.Cpf == cpf && Acs.Senha == senha {
-		http.Redirect(w, r, "/pacientes", http.StatusCreated)
+		http.Redirect(w, r, "/pacientes", http.StatusSeeOther)
 	}
 	err := templates.ExecuteTemplate(w, "teladelogin.html", "a")
 	if err != nil {
