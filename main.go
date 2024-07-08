@@ -128,9 +128,21 @@ func mapa(w http.ResponseWriter, _ *http.Request) {
 	}
 }
 
-func usuario(w http.ResponseWriter, _ *http.Request) {
+func usuario(w http.ResponseWriter, r *http.Request) {
+
 	var acs model.Acs
 	db.First(&acs)
+
+	if r.Method == "POST" {
+		acs.Nome = r.FormValue("nome")
+		acs.Cpf = r.FormValue("CPF")
+		acs.Cnes = r.FormValue("CNES")
+		acs.Cns = r.FormValue("CNS")
+		acs.Cbo = r.FormValue("CBO")
+		acs.Ine = r.FormValue("INE")
+		db.Save(&acs)
+		http.Redirect(w, r, "/pacientes", http.StatusSeeOther)
+	}
 
 	err := templates.ExecuteTemplate(w, "usuario.html", acs)
 	if err != nil {

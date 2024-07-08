@@ -34,35 +34,35 @@
       <div id="voltar">
         <a href="/pacientes"><button>Voltar</button></a>
       </div>
-      
-      <div id="salvar">
-        <input type="submit" value="Salvar 🠖" onclick="alert('Página será atualizada com os dados editados.')"></input>
-      </div>
 
       <div id="nome-foto">
         <img src="../public/assets/acesso-ao-perfil.png" alt="foto do ACS">
         <h2>AGENTE COMUNITÁRIO DE SAÚDE</h2>
       </div>
   
+      <form action="/usuario", method="post">
       <div id="blocos">  
-      <div id="bloco1">
-        <h3>NOME COMPLETO</h3>
-        <input type="text" name="nome" id="nome" value={{.Nome}}>
-        <h3>CPF</h3>
-        <input type="text" name="CPF" id="CPF" value={{.Cpf}}>
-        <h3>CNES</h3>
-        <input type="text" name="CNES" id="CNES" value={{.Cnes}}>
+        <div id="bloco1">
+          <h3>NOME COMPLETO</h3>
+          <input type="text" name="nome" id="nome" value={{.Nome}}>
+          <h3>CPF</h3>
+          <input type="text" name="CPF" id="CPF" value={{.Cpf}}>
+          <h3>CNES</h3>
+          <input type="text" name="CNES" id="CNES" value={{.Cnes}}>
+        </div>
+        <div id="bloco2">
+          <h3>CNS PROFISSIONAL</h3>
+          <input type="text" name="CNS" id="CNS PROFISSIONAL" value={{.Cns}}>
+          <h3>CBO</h3>
+          <input type="text" name="CBO" id="CBO" value={{.Cbo}}>
+          <h3>INE</h3>
+          <input type="text" name="INE" id="INE" value={{.Ine}}>
+        </div>
+        <div id="salvar">
+          <input type="submit" value="Salvar 🠖"></input>
+        </div>
       </div>
-  
-      <div id="bloco2">
-        <h3>CNS PROFISSIONAL</h3>
-        <input type="text" name="CNS PROFISSIONAL" id="CNS PROFISSIONAL" value={{.Cns}}>
-        <h3>CBO</h3>
-        <input type="text" name="CBO" id="CBO" value={{.Cbo}}>
-        <h3>INE</h3>
-        <input type="text" name="INE" id="INE" value={{.Ine}}>
-      </div>
-      </div>
+      </form>
     </div>
   </body>
   </html>
