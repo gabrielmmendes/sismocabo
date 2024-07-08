@@ -32,16 +32,23 @@ func main() {
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
+	var dadosIncorretos bool = false
+
 	senha := r.FormValue("senha")
 	cpf := r.FormValue("cpf")
 	var Acs model.Acs
 
 	db.Find(&Acs)
 
-	if Acs.Cpf == cpf && Acs.Senha == senha {
-		http.Redirect(w, r, "/pacientes", http.StatusSeeOther)
+	if r.Method == "POST" {
+		if Acs.Cpf == cpf && Acs.Senha == senha {
+			http.Redirect(w, r, "/dashboard", http.StatusSeeOther)
+		} else {
+			dadosIncorretos = true
+		}
 	}
-	err := templates.ExecuteTemplate(w, "teladelogin.html", "a")
+	
+	err := templates.ExecuteTemplate(w, "teladelogin.html", dadosIncorretos)
 	if err != nil {
 		return
 	}
