@@ -22,19 +22,7 @@ button{
     font-family: 'Poppins', sans-serif;
     color: #ffffff
 }
-  .v435_1326 {
-    width: 100%;
-    height: 780px;
-    background: url("../images/v435_1326.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
+ 
   .v435_1173 {
     width: 100%;
     height: 782px;
@@ -59,7 +47,7 @@ button{
   .v500_146 {
     width: 334px;
     height: 44px;
-    background: rgba(179,170,255,1);
+    background: rgba(138, 131, 201);
     opacity: 1;
     position: absolute;
     top: 128px;
@@ -69,7 +57,7 @@ button{
   .v500_142 {
     width: 334px;
     height: 44px;
-    background: rgba(179,170,255,1);
+    background: rgba(138, 131, 201);
     opacity: 1;
     position: absolute;
     top: 447px;
@@ -78,23 +66,23 @@ button{
   .v500_145 {
     width: 334px;
     height: 44px;
-    background: rgba(179,170,255,1);
+    background: rgb(138, 131, 201);
     opacity: 1;
     position: absolute;
     top: 128px;
     left: 926px;
   }
-  .v435_1383 {
+  .FundoNao {
     width: 242px;
     height: 44px;
-    background: rgba(179,170,255,1);
+    background: rgba(138, 131, 201);
     opacity: 1;
     position: absolute;
     top: 530px;
     left: 244px;
     overflow: hidden;
   }
-  .v435_1384 {
+  .CorNao {
     width: 233px;
     color: rgba(0,0,0,1);
     position: absolute;
@@ -145,152 +133,10 @@ button{
     left: 0px;
     overflow: hidden;
   }
-  .v435_1420 {
-    width: 200px;
-    height: 50px;
-    background: rgb(78, 80, 87);
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    border-radius: 100px;
-    font-family: 'Poppins', sans-serif;
-    color: #ffffff
-  }
-  .v435_1421 {
-    width: 183px;
-    height: 60px;
-    background: url("../images/v435_1421.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v435_1422 {
-    width: 183px;
-    height: 60px;
-    background: url("../images/v435_1422.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v435_1423 {
-    width: 183px;
-    height: 60px;
-    background: url("../images/v435_1423.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v435_1424 {
-    width: 183px;
-    height: 60px;
-    background: rgba(0,0,0,1);
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-  }
-  .v435_1425 {
-    width: 183px;
-    height: 60px;
-    background: url("../images/v435_1425.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  .v435_1426 {
-    width: 183px;
-    height: 60px;
-    background: rgba(255,255,255,1);
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-  }
-  .v435_1427 {
-    width: 20px;
-    height: 19px;
-    background: url("../images/v435_1427.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 39px;
-    left: 43px;
-    transform: rotate(-180deg);
-    overflow: hidden;
-  }
-  .v435_1428 {
-    width: 20px;
-    height: 19px;
-    background: url("../images/v435_1428.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    transform: rotate(-180deg);
-    overflow: hidden;
-  }
-  .v435_1429 {
-    width: 20px;
-    height: 19px;
-    background: rgba(0,0,0,1);
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    transform: rotate(-180deg);
-  }
-  .v435_1430 {
-    background: url("../images/v435_1430.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 1px;
-    left: 1px;
-    transform: rotate(-180deg);
-    overflow: hidden;
-  }
-  .v435_1431 {
-    width: 21px;
-    height: 19px;
-    background: rgba(19,7,46,1);
-    opacity: 1;
-    position: absolute;
-    top: 1px;
-    left: 0px;
-    transform: rotate(-180deg);
-  }
   
-  .v500_141 {
+  .TextoQuem {
     width: 553px;
-    color: rgba(255,255,255,1);
+    color: rgb(12, 12, 12);
     position: absolute;
     top: 184px;
     left: 123px;
@@ -300,9 +146,9 @@ button{
     opacity: 1;
     text-align: left;
   }
-  .v500_147 {
+  .TextoSomos {
     width: 683px;
-    color: rgba(255,255,255,1);
+    color: rgb(12, 12, 12);
     position: absolute;
     top: 184px;
     left: 781px;
@@ -312,9 +158,9 @@ button{
     opacity: 1;
     text-align: left;
   }
-  .v500_151 {
+  .TextoSobre {
     width: 678px;
-    color: rgba(255,255,255,1);
+    color: rgba(12,12,12);
     position: absolute;
     top: 512px;
     left: 781px;
