@@ -11,11 +11,11 @@
         <img src="../public/assets/Logo (2).png" alt="Descrição da Imagem" class="imagem">
         <img src="../public/assets/Titulo Login.png" alt="Descrição da Imagem" class="imagem2">
         <form action="/login" method="post">
-            <label class="retangulo">Cpf
-                <input type="text"  name="cpf" style="border-radius: 10px; width: 300px; height: 20px; border: none;" required>
+            <label class="retangulo">
+                <input type="text"  name="Cpf" style="border-radius: 10px; width: 300px; height: 20px; border: none;" placeholder="Cpf" required>
             </label>
-            <label  class="retangulo1">Senha
-                <input type="password"  name="senha" style="border-radius: 10px; width: 300px; height: 20px;border: none;" required>
+            <label  class="retangulo1">
+                <input type="password"  name="senha" style="border-radius: 10px; width: 300px; height: 20px;border: none;" placeholder="Senha" required>
             </label>
             {{if .}}
             <p style="text-align: center;color: red; font-weight: bold;"> Cpf ou Senha incorreta!</p>
