@@ -94,46 +94,6 @@ button{
     opacity: 1;
     text-align: left;
   }
-  .v435_1175 {
-    width: 326px;
-    height: 60px;
-    background: url("../images/v435_1175.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 16px;
-    left: 13px;
-    overflow: hidden;
-  }
-  .v435_1417 {
-    width: 183px;
-    height: 60px;
-    background: url("../images/v435_1417.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: absolute;
-    top: 16px;
-    left: 1353px;
-    overflow: hidden;
-  }
-  .v435_1418 {
-    width: 183px;
-    height: 60px;
-    background: url("../images/v435_1418.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    opacity: 1;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
-  }
-  
   .TextoQuem {
     width: 553px;
     color: rgb(12, 12, 12);
@@ -170,7 +130,7 @@ button{
     opacity: 1;
     text-align: left;
   }
-  .v500_152 {
+  .TextoQuemSomos{
     width: 250px;
     color: rgba(255,255,255,1);
     position: absolute;
@@ -182,7 +142,7 @@ button{
     opacity: 1;
     text-align: left;
   }
-  .v500_153 {
+  .TextoSobree{
     width: 86px;
     color: rgba(255,255,255,1);
     position: absolute;
@@ -194,7 +154,7 @@ button{
     opacity: 1;
     text-align: left;
   }
-  .v500_154 {
+  .TextoOque {
     width: 350px;
     color: rgba(255,255,255,1);
     position: absolute;
