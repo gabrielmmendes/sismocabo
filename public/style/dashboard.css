@@ -17,63 +17,44 @@ table, th, td, tr {
     border-collapse: collapse;
 }
 
-/* Parte Superior */
+/* Parte Superior (NOVO CABEÇALHO - HEITOR) */
 .cabecalho {
     position: relative;
-    height: 200px;
-    border-bottom: solid black 2px ;
+    padding-bottom: 15vh;
 }
-#logoPrincipal{
-    position: absolute;
-    width: 300px;
-    top: 50%;
-    right: 15%;
-    -ms-transform: translate(50%, -50%);
-    transform: translate(50%, -50%);
-}
-button#back{
-    position: absolute;
-    
-    width: 120px;
-    height: 60px;
-    margin-left: 150px;
-    margin-top: 100px;
-    
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    font-size: 15pt;
-    border-color: transparent;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
- 
-
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-
-    transition: background-color 0.2s;
-}
-button#back:hover{
-    background-color: #d1d1d1
-}
-
-/* Navegação */
-div#navigation{
+.menu {
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -50%);
     top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.menu li a {
+    text-decoration: none;
+    color: rgba(13, 153, 255, 1);
+    font-size: 1.5rem;
+    padding: 16px;
+}
+.menu ul {
+    list-style-type: none;
     display: flex;
 }
-div#navigation a{
-    color: #0D99FF;
-    font-size: 20pt;
-    margin: 10px;
-    font-weight: 200;
-    text-decoration: none;
-    width: 184px;
+.logo {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+    width: 10vw;
 }
-div#navigation a#dashboard{
+.perfil {
+    position: absolute;
+    top: 30%;
+    right: 25px;
+    max-height: 5vh;
+}
+.menu .destaque {
+    font-weight: 600;
     text-decoration: underline;
-    font-weight: 700;
+    text-underline-offset: 5px;
 }
 
 /* Parte Inferior */
