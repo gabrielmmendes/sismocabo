@@ -86,9 +86,18 @@ func dashboard(w http.ResponseWriter, _ *http.Request) {
 	db.First(&acs)
 
 	dataAtual := time.Now()
+	hora, _, _ := dataAtual.Clock()
 	ptDates := [][]string{{"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"}, {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"}}
 	date := ptDates[0][int(dataAtual.Weekday())] + ", " + strconv.Itoa(dataAtual.Day()) + " de " + ptDates[1][int(dataAtual.Month())-1] + " de " + strconv.Itoa(dataAtual.Year())
 
+	greeting := ""
+	if hora >= 4 && hora <= 12 {
+		greeting = "Bom dia"
+	} else if hora > 12 && hora <= 18 {
+		greeting = "Boa tarde"
+	} else {
+		greeting = "Boa noite"
+	}
 	getFirstWord := func(name string) string {
 		for i := range name {
 			if string(name[i]) == " " {
@@ -101,10 +110,12 @@ func dashboard(w http.ResponseWriter, _ *http.Request) {
 	dashboardInfo := struct {
 		AcsData      model.Acs
 		Date         string
+		Greeting     string
 		AcsFirstName string
 	}{
 		AcsData:      acs,
 		Date:         date,
+		Greeting:     greeting,
 		AcsFirstName: getFirstWord(acs.Nome),
 	}
 
