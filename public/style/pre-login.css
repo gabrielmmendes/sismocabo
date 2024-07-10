@@ -30,7 +30,7 @@
   .fundoNao {
     width: 280px;
     height: 44px;
-    background: rgba(179,170,255,1);
+    background: rgb(129, 120, 207);
     opacity: 1;
     position: absolute;
     top: 162px;
@@ -50,7 +50,7 @@
     text-align: left;
   }
   .texto01 {
-    width: 800px;
+    width: 850px;
     color: rgba(255,255,255,1);
     position: absolute;
     top: 222px;
