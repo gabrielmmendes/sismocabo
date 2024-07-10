@@ -23,7 +23,7 @@ button{
     color: #ffffff
 }
  
-  .v435_1173 {
+  .PosicaoBotao{
     width: 100%;
     height: 782px;
     background: rgba(192,226,250,1);
@@ -33,7 +33,7 @@ button{
     left: 0px;
     overflow: hidden;
   }
-  .v435_1174 {
+  .FundoGeral {
     width: 100%;
     height: 650px;
     background: rgba(175,196,211,1);
@@ -42,9 +42,8 @@ button{
     top: 87px;
     left: 61px;
     overflow: hidden;
-    
   }
-  .v500_146 {
+  .FundoOque {
     width: 334px;
     height: 44px;
     background: rgba(138, 131, 201);
@@ -54,7 +53,7 @@ button{
     left: 162px;
     overflow: hidden;
   }
-  .v500_142 {
+  .FundoSobre {
     width: 334px;
     height: 44px;
     background: rgba(138, 131, 201);
@@ -63,7 +62,7 @@ button{
     top: 447px;
     left: 926px;
   }
-  .v500_145 {
+  .FundoQuem {
     width: 334px;
     height: 44px;
     background: rgb(138, 131, 201);
