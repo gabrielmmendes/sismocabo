@@ -1,4 +1,4 @@
-![image](https://raw.githubusercontent.com/gabrielmmendes/sismocabo/main/public/assets/logo.png)
+![image](https://raw.githubusercontent.com/gabrielmmendes/sismocabo/main/public/assets/fullLogo.png)
 # Sistema de Monitoramento do Câncer de Boca
 [![My Skills](https://skillicons.dev/icons?i=go,html,css,postgres)](https://skillicons.dev)
 
