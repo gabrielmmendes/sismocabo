@@ -35,7 +35,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 	var dadosIncorretos bool = false
 
 	senha := r.FormValue("senha")
-	cpf := r.FormValue("cpf")
+	cpf := r.FormValue("Cpf")
 	var Acs model.Acs
 
 	db.Find(&Acs)
