@@ -840,5 +840,16 @@
 		"faz_uso_alcool": false,
 		"situacao_de_rua": false
 	}
-]
+],
+	"acss": [
+		{
+			"nome": "Assis Ferreira Albuquerque",
+			"cpf": "12345678900",
+			"cns": "701 2000 7660 7217",
+			"cnes": "1234567",
+			"cbo": "5162-05",
+			"ine": "0000004294",
+			"senha": "123"
+		}
+	]
 }

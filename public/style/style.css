@@ -6,17 +6,44 @@ body {
     background-color: rgb(194, 228, 253);
 }
 
-.logo {
+/* Parte Superior (NOVO CABEÇALHO - HEITOR) */
+.cabecalho {
     position: relative;
-    top: 15px;
-    left: 15px;
+    padding-bottom: 15vh;
 }
-
 .menu {
     position: absolute;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    display: block;
+    
+}
+.menu li a {
+    text-decoration: none;
+    color: rgba(13, 153, 255, 1);
+    font-size: 1.5rem;
+    padding: 16px;
+}
+.menu ul {
+    list-style-type: none;
+    display: flex;
+}
+.logo {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+    width: 10vw;
+}
+.perfil {
+    position: absolute;
+    top: 30%;
+    right: 25px;
+    max-height: 5vh;
+}
+.menu .destaque {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 5px;
 }
 
 .opcoes {
@@ -150,19 +177,6 @@ li a {
     text-align: center;
     padding: 16px;
     text-decoration: none;
-}
-
-.destaque {
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 5px;
-}
-
-.perfil {
-    position: relative;
-    top: 15px;
-    right: 15px;
-    float: right;
 }
 
 .tabela {

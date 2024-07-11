@@ -1,7 +1,9 @@
 package infra
 
 import (
+	"encoding/json"
 	"fmt"
+	"io"
 	"ip-web/model"
 	"log"
 	"os"
@@ -28,5 +30,58 @@ func CreateDatabaseConnection() *gorm.DB {
 		log.Fatal("falha ao migrar database ", err)
 	}
 
+	err = db.AutoMigrate(&model.Acs{})
+	if err != nil {
+		log.Fatal("falha ao migrar database ", err)
+	}
+	
+	var Pacientes []model.Paciente
+	db.Find(&Pacientes)
+	if len(Pacientes) == 0 {
+		Pacientes = jsonPacientesToList()
+		db.Create(&Pacientes)
+	}
+
+	var Acss []model.Acs
+	db.Find(&Acss)
+	if len(Acss) == 0 {
+		Acss = jsonAcsToList()
+		db.Create(&Acss)
+	}
+
 	return db
+}
+
+type Pacientes struct {
+	Pacientes []model.Paciente `json:"pacientes"`
+}
+func jsonPacientesToList() []model.Paciente {
+	var Pacientes Pacientes
+
+	jsonFile, _ := os.Open("data.json")
+	byteJson, _ := io.ReadAll(jsonFile)
+
+	err := json.Unmarshal(byteJson, &Pacientes)
+	if err != nil {
+		return nil
+	}
+
+	return Pacientes.Pacientes
+}
+
+type Acss struct {
+	Acs []model.Acs `json:"acss"`
+}
+func jsonAcsToList() []model.Acs {
+	var Acs Acss
+
+	jsonFile, _ := os.Open("data.json")
+	byteJson, _ := io.ReadAll(jsonFile)
+
+	err := json.Unmarshal(byteJson, &Acs)
+	if err != nil {
+		return nil
+	}
+	
+	return Acs.Acs
 }

@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #BDE3FF;
+    height: 950px;
+}
+
+/* Parte Superior (NOVO CABEÇALHO - HEITOR) */
+.cabecalho {
+    position: relative;
+    padding-bottom: 15vh;
+}
+.menu {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+.menu li a {
+    text-decoration: none;
+    color: rgba(13, 153, 255, 1);
+    font-size: 1.5rem;
+    padding: 16px;
+}
+.menu ul {
+    list-style-type: none;
+    display: flex;
+}
+.logo {
+    position: absolute;
+    top: 30%;
+    left: 25px;
+    width: 10vw;
+}
+.perfil {
+    position: absolute;
+    top: 30%;
+    right: 25px;
+    max-height: 5vh;
+}
+.menu .destaque {
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* Mapa Interativo */
+div#mapaInterativo{
+    position: absolute;
+    left:5%;
+    margin-top:5%;
+    width: 90%;
+    height: 60%;
+    background-image: url("../assets/map.png");
+    box-shadow: 0px 0px 3px #333;
+    overflow: hidden;
+}
+div#mapaInterativo #pointer{
+    position: relative;
+    width: 40px;
+    top: 50%;
+}
+div#mapaInterativo #pointerDetails{
+    border-radius: 5px;
+    font-size: 10pt;
+    padding: 10px;
+    height: 45px;
+    position: relative;
+    top: -80px;
+    left: 35px;
+}
+div#mapaInterativo div{
+    position: absolute;
+    height: 100px;
+}
+div#mapaInterativo div#paciente1{
+    margin-left: 10%;
+    margin-top: 300px;
+}
+div#mapaInterativo div#paciente2{
+    margin-left: 35%;
+    margin-top: 80px;
+}
+div#mapaInterativo div#paciente3{
+    margin-left: 75%;
+    margin-top: 230px;
+}
+h2.light#pointerDetails{
+    background-color: green;
+} 
+h2.medium#pointerDetails{
+    background-color: gold;
+} 
+h2.hard#pointerDetails{
+    background-color: rgb(233, 50, 50);
+}
+
+/* Legenda */
+div#legenda{
+    display: flex;
+    left: 5%;
+    margin-top: 33%;
+    position: absolute;
+}
+
+div#legenda div{
+    margin: 20px;
+    display:flex;
+    align-items: center;
+}
+div#legenda div div{width:30px; height: 30px;}
+div#legenda div div#legAmarela{background-color: gold;}
+div#legenda div div#legVerde{background-color: green;}
+div#legenda div div#legVermelha{background-color: rgb(233, 50, 50);}
+
+div#legenda div h2{
+    font-size: 12pt;
+    font-weight: 200;
+
+}

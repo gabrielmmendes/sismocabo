@@ -1,17 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
-{{template "head" .}}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sismocabo</title>
+    <link rel="icon" href="/public/assets/logo.png">
+    <link rel="stylesheet" href="../public/style/dashboard.css">
+</head>
 <body>
-  <div class="cabecalho">
-    <a href="/"><img src="./public/assets/logo.png" style="width: 200px;" class="logo" alt="logomarca do sistema de monitoramento do câncer de boca"></a>
-    <div class="menu">
-      <ul>
-        <li><a href="/dashboard" class="destaque" >Dashboard</a></li> 
-        <li><a href="/pacientes" >Pacientes</a></li>
-        <li><a href="/mapa-interativo">Mapa Interativo</a></li>
-      </ul>
+    <div class="cabecalho">
+        <a href="/"><img src="./public/assets/fullLogo.png" style="width: 200px;" class="logo" alt="logomarca do sistema de monitoramento do câncer de boca"></a>
+        <div class="menu">
+          <ul>
+            <li><a href="/dashboard" class="destaque" >Dashboard</a></li> 
+            <li><a href="/pacientes" >Pacientes</a></li>
+            <li><a href="/mapa-interativo">Mapa Interativo</a></li>
+          </ul>
+        </div>
+        <a href="/usuario"><img src="./public/assets/acesso-ao-perfil.png" class="perfil" alt="acesso ao perfil"></a>
+      </div>
+
+    <div class="icon" id="iconPerson"><img src="../public/assets/iconPerson.png"></div>
+    <div class="quadro" id="dados">
+        <h2 id="title">Meus Dados</h2>
+        <div>
+            <ul>
+                <li class="i"></li>
+                <li class="p">
+                    <p class="info1">Nome Completo</p>
+                    <p class="info2">{{.AcsData.Nome}}</p>
+                </li>
+                <li class="i">
+                    <p class="info1">CNS Profissional</p>
+                    <p class="info2">{{.AcsData.Cns}}</p>
+                </li>
+                <li class="p">
+                    <p class="info1">CPF</p>
+                    <p class="info2">{{.AcsData.Cpf}}</p>
+                </li>
+                <li class="i">
+                    <p class="info1">CBO</p>
+                    <p class="info2">{{.AcsData.Cbo}}</p>
+                </li>
+                <li class="p">
+                    <p class="info1">CNES</p>
+                    <p class="info2">{{.AcsData.Cnes}}</p>
+                </li>
+                <li class="i">
+                    <p class="info1">INE</p>
+                    <p class="info2">{{.AcsData.Ine}}</p>
+                </li>
+            </ul>
+        </div>
     </div>
-    <a href="/usuario"><img src="./public/assets/acesso-ao-perfil.png" class="perfil" alt="acesso ao perfil"></a>
-  </div>
+    <div class="icon" id="newsIcon"><img src="../public/assets/newsIcon.png"></div>
+    <div class="quadro" id="noticias">
+        <h2 id="title">Últimas Notícias</h2>
+        <div>
+            <h2 id="materia">Sismocabo ganha prêmio como referência em software voltado ao câncer de boca</h2>
+            <div>
+                <h2 id="text">O projeto, desenvolvido em conjunto com alunos de 1º período em Engenharia de Software na UFG,  está sendo referência no combate ao câncer bucal em Goiânia [...]</h2>
+                <img src="../public/assets/ufg.png" id="ufg">
+            </div>
+        </div>
+    </div>
+    <div class="icon" id="pinIcon"><img src="../public/assets/pinIcon.png"></div>
+    <div class="quadro" id="mapa">
+        <h2 id="title">Mapa Interativo</h2>
+        <div id="mapaInterativo" style="width: 95%">
+            <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Goi%C3%A2nia+(My%20Business%20Name)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"><a href="https://www.gps.ie/">gps trackers</a></iframe>
+            <div>
+                <img src="../public/assets/pointer.png" id="pointer">
+                <h2 id="pointerDetails">Diogo Silva Lima<br><br>Fumante, Alcóolatra</h2>
+            </div>
+        </div>
+    </div>
+    <div class="icon" id="warningIcon"><img src="../public/assets/warningIcon.png"></div>
+    <div class="quadro" id="atualizacoes">
+        <h2 id="title">Atualizações</h2>
+        <div>
+            <h2 id="materia">Sismocabo recebe sua primeira versão em 06 de maio de 2024 - V 1.0.0</h2>
+            <div>
+                <h2 id="text">A versão inicial conta com serviços de georreferenciamento e um cadastro seguro de pacientes, a fim de garantir aos ACSs uma melhor qualidade de trabalho [...]</h2>
+                <img src="../public/assets/logo.png" id="attIcon">
+            </div>
+        </div>
+    </div>
+    <div class="quadro" id="perfil">
+        <h2 id="titlePrincipal">
+            <p>{{.Date}}</p>
+            {{.Greeting}}, {{.AcsFirstName}}
+        </h2>
+            <div id="agenda">
+                <h2 id="title">Sua Agenda <img id="icon" src="../public/assets/iconCalendar.png"></h2>
+                <ul>
+                    <li class="i"></li>
+                    <li class="p"></li>
+                    <li class="i">Visitar domicílio de André Cardoso Lima<input type="checkbox" class="checkout"></li>
+                    <li class="p">Reportar o quadro de Isabella Fernandes Costa<input type="checkbox" class="checkout"></li>
+                    <li class="i">Visitar domicílio de Giovanna Cavalcanti Pereira<input type="checkbox" class="checkout"></li>
+                    <li class="p">Fazer cadastro da região da Vila Itatiaia - Goiânia<input type="checkbox" class="checkout"> </li>
+                    <li class="i"></li>
+                </ul>
+            </div>
+            <div id="pacientes">
+                <h2 id="title">Últimos pacientes visitados <img id="icon" src="../public/assets/iconPerson.png"></h2>
+                <ul>
+                    <li class="i"></li>
+                    <li class="p">
+                        <p class="person">Pacientes</p>
+                        <p class="cpf">CPF</p>
+                    </li>
+                    <li class="i">
+                        <p class="person">Diogo Silva Lima</p>
+                        <p class="cpf">867.420.587-90</p>
+                    </li>
+                    <li class="p">
+                        <p class="person">André Cardoso Lima</p>
+                        <p class="cpf">946.239.828-31</p>
+                    </li>
+                    <li class="i">
+                        <p class="person">Giovanna Cavalcanti Pereira</p>
+                        <p class="cpf">303.879.399-30</p>
+                    </li>
+                    <li class="p">
+                        <p class="person">Isabella Fernandes Costa</p>
+                        <p class="cpf">189.564.656-14</p>
+                    </li>
+                    <li class="i">
+                        <p class="person">Nicolash Rodrigues Santosa</p>
+                        <p class="cpf">855.927.359-01</p>
+                    </li>
+                    <li class="p">
+                        <p class="person">Manuela Melo Silva</p>
+                        <p class="cpf">589.574.181-99</p>
+                    </li>
+                    <li class="i">
+                        <p class="person">Paulo Souza Correia</p>
+                        <p class="cpf">171.030.357-33</p>
+                    </li>
+                </ul>
+            </div>
+    </div>   
+</div>
 </body>
 </html>
