@@ -11,7 +11,40 @@
         <div class="fundoMenor"></div>
         <div class="fundoNao"></div>
         <span class="NaoAoCancer">#NãoAoCâncer</span>
-        <a href="#"><img src="../public/assets/dente.png" class="fotoDente"></a>
+        
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alternância de Fotos</title>
+
+</head>
+<body>
+
+<div class="photo-container ">
+  <img src="../public/assets/imagem1.png" alt="Imagem 1" class="active"style="width: 600px;">
+  <img src="../public/assets/imagem2.png" alt="Imagem 2"style="width: 650px;">
+  <img src="../public/assets/imagem3.png" alt="Imagem 3"style="width: 650px;">
+</div>
+
+<script>
+  const photos = document.querySelectorAll('.photo-container img');
+  const intervalo = 3000; 
+  let index = 0; 
+
+  function ProssimaFoto() {
+    photos[index].classList.remove('active'); 
+    index = (index + 1) % photos.length; 
+    photos[index].classList.add('active');
+  }
+
+  photos[index].classList.add('active');
+
+  setInterval(ProssimaFoto, intervalo);
+</script>
+
+</body>
+</html>
         <span class="texto01">Soluções para o monitoramento do câncer de boca</span>
         <span class="texto02">Desenvolvido com o intuito de solucionar a logística por trás do monitoramento do câncer de boca, para que medidas de prevenção possam ser tomadas de maneira precoce</span>
         <span class="soluçoes">soluções</span>
