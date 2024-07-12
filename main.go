@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html", "./templates/cadastrar-paciente.html", "./templates/pre-login.html", "./templates/teladelogin.html", "./templates/Sobre.html"))
+var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html", "./templates/cadastrar-paciente.html", "./templates/pre-login.html", "./templates/teladelogin.html", "./templates/Sobre.html", "./templates/pre-login.html"))
 var db = infra.CreateDatabaseConnection()
 
 func main() {
@@ -24,10 +24,17 @@ func main() {
 	http.HandleFunc("/paciente/deleta", deletaPaciente)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/sobre", sobre)
+	http.HandleFunc("/pre-login", prelogin)
 
 	// Iniciar o servidor na porta 8080
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
+		return
+	}
+}
+func prelogin(w http.ResponseWriter, r *http.Request){
+	err := templates.ExecuteTemplate(w,"pre-login.html", nil) 
+		if err != nil{
 		return
 	}
 }
