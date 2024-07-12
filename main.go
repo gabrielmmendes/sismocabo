@@ -32,7 +32,8 @@ func main() {
 	}
 }
 func sobre(w http.ResponseWriter, r *http.Request){
-	err:= templates.ExecuteTemplate(w,"Sobre.html", nil){
+	err := templates.ExecuteTemplate(w,"Sobre.html", nil) 
+		if err != nil{
 		return
 	}
 }
