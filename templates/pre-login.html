@@ -32,7 +32,7 @@
   const intervalo = 3000; 
   let index = 0; 
 
-  function ProssimaFoto() {
+  function nextPhoto() {
     photos[index].classList.remove('active'); 
     index = (index + 1) % photos.length; 
     photos[index].classList.add('active');
@@ -40,7 +40,7 @@
 
   photos[index].classList.add('active');
 
-  setInterval(ProssimaFoto, intervalo);
+  setInterval(nextPhoto, intervalo);
 </script>
 
 </body>
