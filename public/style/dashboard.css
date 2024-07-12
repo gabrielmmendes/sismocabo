@@ -9,7 +9,7 @@ h1 {
 }
 
 p {
-    color: #666;
+    color: #444;
 }
 
 table, th, td, tr {
@@ -210,6 +210,13 @@ div.quadro div ul li.i{
 div.quadro div ul li.p{
     background-color: #88C2EC;
 }
+div.quadro div ul li input.agendaTask{
+    background-color: rgb(0, 0, 0, 0);
+    border-style: none;
+    width: 90%;
+    color: black;
+    font-weight: bold;
+}
 div.quadro div ul li input.checkout{
     position: absolute;
     right: 2%;
@@ -298,14 +305,15 @@ div.quadro#mapa #mapaInterativo div{
     height: 100px;
 }
 
+
 /* Notícias */
+
 div.quadro#noticias{
     position: absolute;
     right: 3%;
     margin-top: 55px;
     width: 28%;
     overflow: hidden;
-    /* height: 30%; */
 }
 div.quadro#noticias div h2#materia{
     z-index: 1;
@@ -335,13 +343,13 @@ div.quadro#noticias div div{
 div.quadro#noticias div div img#ufg{
     height: 45%;
     right: 10%;
-    margin-top: 5%;
+    margin-top: 0%;
     position: absolute;
     border-radius: 5px;
 }
 
-/* Atualizações */
-div.quadro#atualizacoes{
+/* Panorama */
+div.quadro#panorama{
     position: absolute;
     right: 3%;
     margin-top: 400px;
@@ -349,7 +357,7 @@ div.quadro#atualizacoes{
     height: 280px;
     overflow: hidden;
 }
-div.quadro#atualizacoes div h2#materia{
+div.quadro#panorama div h2#materia{
     z-index: 1;
     position: relative;
     background-color: #88C2EC;
@@ -359,25 +367,100 @@ div.quadro#atualizacoes div h2#materia{
     margin-top: 25px;
     font-weight:800;
 }
-div.quadro#atualizacoes div h2#text{
+div.quadro#panorama div h2#text{
     font-size: 83%;
     margin-top: -20px;
     padding: 40px 0px 20px 15px;
     width: 50%;
     text-align: justify;
 }
-div.quadro#atualizacoes div div{
+div.quadro#panorama div {
     background-color: #C1E6FF;
     display: flex;
-    height: 70%;
+    height: 85%;
     margin-top: -20px;
     margin-left: 2%;
     width: 96%;
+
 }
-div.quadro#atualizacoes div div img#attIcon{
+div.quadro#panorama div div img#attIcon{
     height: 50%;
     right: 11%;
     margin-top: 5%;
     position: absolute;
     border-radius: 5px;
 }
+div.quadro#panorama div div {
+    justify-content: center;
+    margin: 5px;
+    width: 100%;
+    padding: 15px;
+    padding-top: 15px;
+}
+div.quadro#panorama div div img#bars-chart{
+    height: 90%;
+    margin-top: 2.5%;
+    margin-left: 2%;
+    border-radius: 5px;
+    top: 45px;
+}
+div.quadro#panorama div div h2.chartTitle{
+    position: absolute;
+    font-size: 11.5pt;
+    text-align: center;
+    background-color: #1d93e8;
+    border-radius: 5px;
+    padding-right:5px;
+    padding-left: 5px;
+    bottom: 10px;
+    width: 40%;
+}
+div.quadro#panorama div div img#pie-chart{
+    height: 60%;
+    right: 10%;
+    margin-top: 5%;
+    position: absolute;
+    border-radius: 50%;
+    top: 35px;
+}
+
+/* Gráficos */
+/* div.quadro#graficos{
+    position: absolute;
+    right: 3%;
+    margin-top: 55px;
+    width: 28%;
+    overflow: hidden;
+}
+div.quadro#graficos h2#materia{
+    z-index: 1;
+    position: relative;
+    background-color: #000000;
+    font-size: 11pt;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 25px;
+    font-weight:800;
+}
+div.quadro#graficos h2#text{
+    font-size: 83%;
+    margin-top: -20px;
+    padding: 40px 0px 20px 15px;
+    width: 42%;
+    text-align: justify;
+}
+div.quadro#graficos div {
+    background-color: #C1E6FF;
+    display: flex;
+    height: 80%;
+    margin-top: -20px;
+    margin-left: 2%;
+    width: 96%;
+}
+div.quadro#graficos div img#pie-chart{
+    height: 80%;
+    right: 10%;
+    margin-top: 5%;
+    position: absolute;
+    border-radius: 50%;
+} */

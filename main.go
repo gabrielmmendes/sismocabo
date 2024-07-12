@@ -1,13 +1,19 @@
 package main
 
 import (
+	"bytes"
+	"fmt"
 	"html/template"
 	"ip-web/infra"
 	"ip-web/model"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/wcharczuk/go-chart/v2"
+	"github.com/wcharczuk/go-chart/v2/drawing"
 )
 
 var templates = template.Must(template.ParseFiles("./index.html", "./templates/dashboard.html", "./templates/mapa.html", "./templates/usuario.html", "./templates/head.html", "./templates/cadastrar-paciente.html", "./templates/pre-login.html", "./templates/teladelogin.html"))
@@ -47,7 +53,7 @@ func login(w http.ResponseWriter, r *http.Request) {
 			dadosIncorretos = true
 		}
 	}
-	
+
 	err := templates.ExecuteTemplate(w, "teladelogin.html", dadosIncorretos)
 	if err != nil {
 		return
@@ -92,6 +98,24 @@ func dashboard(w http.ResponseWriter, _ *http.Request) {
 	var acs model.Acs
 	db.First(&acs)
 
+	var Pacientes []model.Paciente
+
+	overallData := struct {
+		Homens        int64
+		Mulheres      int64
+		Fumantes      int64
+		Etilistas     int64
+		SituacaoDeRua int64
+		Quartenarios  int64
+	}{}
+
+	db.Where("idade >= ?", 40).Find(&Pacientes).Count(&overallData.Quartenarios)
+	db.Where("sexo = ?", "Masculino").Find(&Pacientes).Count(&overallData.Homens)
+	db.Where("sexo = ?", "Feminino").Find(&Pacientes).Count(&overallData.Mulheres)
+	db.Where("esta_fumante = ?", true).Find(&Pacientes).Count(&overallData.Fumantes)
+	db.Where("faz_uso_alcool = ?", true).Find(&Pacientes).Count(&overallData.Etilistas)
+	db.Where("esta_situacao_de_rua = ?", true).Find(&Pacientes).Count(&overallData.SituacaoDeRua)
+
 	dataAtual := time.Now()
 	hora, _, _ := dataAtual.Clock()
 	ptDates := [][]string{{"Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"}, {"janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"}}
@@ -113,6 +137,49 @@ func dashboard(w http.ResponseWriter, _ *http.Request) {
 		}
 		return name
 	}
+
+	renderGraphics := func() {
+		graph := chart.PieChart{
+			Width:  512,
+			Height: 512,
+			Values: []chart.Value{
+				{Value: float64(overallData.Homens), Label: "Homens" + ": " + strconv.Itoa(int(overallData.Homens)), Style: chart.Style{FontSize: 30, FillColor: drawing.ColorFromHex("408dc0")}},
+				{Value: float64(overallData.Mulheres), Label: "Mulheres" + ": " + strconv.Itoa(int(overallData.Mulheres)), Style: chart.Style{FontSize: 30, FillColor: drawing.ColorFromHex("1d93e8")}},
+			},
+		}
+		graph2 := chart.BarChart{
+			// Title: "Classificação de pacientes",
+
+			Background: chart.Style{
+				FillColor:   drawing.ColorWhite,
+				StrokeColor: drawing.Color{R: 193, G: 230, B: 255},
+				DotColor:    drawing.ColorBlack,
+			},
+
+			Height:   512,
+			Width:    512,
+			BarWidth: 80,
+			Bars: []chart.Value{
+				{Value: float64(overallData.Fumantes), Label: "Fumantes", Style: chart.Style{FontSize: 12, FillColor: drawing.ColorFromHex("C1E6FF")}},
+				{Value: float64(overallData.Etilistas), Label: "Etilistas", Style: chart.Style{FontSize: 18, FillColor: drawing.ColorFromHex("1d93e8")}},
+				{Value: float64(overallData.Quartenarios), Label: "Quartenários", Style: chart.Style{FontSize: 18, FillColor: drawing.ColorFromHex("408dc0")}},
+				{Value: float64(overallData.SituacaoDeRua), Label: "Em situação de rua", Style: chart.Style{FontSize: 18, FillColor: drawing.ColorFromHex("88C2EC")}},
+			},
+		}
+
+		buffer := bytes.NewBuffer([]byte{})
+		buffer2 := bytes.NewBuffer([]byte{})
+		err := graph.Render(chart.PNG, buffer)
+		err2 := graph2.Render(chart.PNG, buffer2)
+		if err != nil && err2 != nil {
+			fmt.Println(err)
+			fmt.Println(err2)
+		}
+		os.WriteFile("./public/assets/pie-chart.png", buffer.Bytes(), 0644)
+		os.WriteFile("./public/assets/bars-chart.png", buffer2.Bytes(), 0644)
+	}
+
+	renderGraphics()
 
 	dashboardInfo := struct {
 		AcsData      model.Acs

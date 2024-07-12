@@ -76,14 +76,23 @@
         </div>
     </div>
     <div class="icon" id="warningIcon"><img src="../public/assets/warningIcon.png"></div>
-    <div class="quadro" id="atualizacoes">
-        <h2 id="title">Atualizações</h2>
+    <div class="quadro" id="panorama">
+        <h2 id="title">Panorama Geral</h2>
         <div>
-            <h2 id="materia">Sismocabo recebe sua primeira versão em 06 de maio de 2024 - V 1.0.0</h2>
+            <!-- <h2 id="materia">Sismocabo recebe sua primeira versão em 06 de maio de 2024 - V 1.0.0</h2>
             <div>
                 <h2 id="text">A versão inicial conta com serviços de georreferenciamento e um cadastro seguro de pacientes, a fim de garantir aos ACSs uma melhor qualidade de trabalho [...]</h2>
                 <img src="../public/assets/logo.png" id="attIcon">
+            </div> -->
+            <div>
+                <img id="bars-chart" src="../public/assets/bars-chart.png">
+                <h2 class="chartTitle">Classificação dos Pacientes</h2>
             </div>
+            <div>
+                <img id="pie-chart" src="../public/assets/pie-chart.png">
+                <h2 class="chartTitle">Divisão por Sexo</h2>
+            </div>
+
         </div>
     </div>
     <div class="quadro" id="perfil">
@@ -96,11 +105,11 @@
                 <ul>
                     <li class="i"></li>
                     <li class="p"></li>
-                    <li class="i">Visitar domicílio de André Cardoso Lima<input type="checkbox" class="checkout"></li>
-                    <li class="p">Reportar o quadro de Isabella Fernandes Costa<input type="checkbox" class="checkout"></li>
-                    <li class="i">Visitar domicílio de Giovanna Cavalcanti Pereira<input type="checkbox" class="checkout"></li>
-                    <li class="p">Fazer cadastro da região da Vila Itatiaia - Goiânia<input type="checkbox" class="checkout"> </li>
-                    <li class="i"></li>
+                    <li class="i"><input class="agendaTask" type="text" placeholder="Defina aqui suas atividades"><input type="checkbox" class="checkout"></li>
+                    <li class="p"><input class="agendaTask" type="text"><input type="checkbox" class="checkout"></li>
+                    <li class="i"><input class="agendaTask" type="text"><input type="checkbox" class="checkout"></li>
+                    <li class="p"><input class="agendaTask" type="text"><input type="checkbox" class="checkout"></li>
+                    <li class="i"><input class="agendaTask" type="text"><input type="checkbox" class="checkout"></li>
                 </ul>
             </div>
             <div id="pacientes">
