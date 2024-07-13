@@ -5,7 +5,7 @@
 Esse reposítório tem o objetivo de armazenar um protótipo de alta fidelidade da nossa versão do projeto Sobre Vidas ACS. 
 
 ## Detalhes e explicações sobre o software
-Link: ...
+Link: https://drive.google.com/file/d/1vsW4ofyqI4WSplGI8xZVyTA3z--TpTnP/view
 
 ## Como rodar
 1. Instale o Go
